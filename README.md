@@ -30,6 +30,4 @@ npm start
 
 4. Run the tests
 
-```
-npm test
-```
+Open `/test/index.html` in any browser.
