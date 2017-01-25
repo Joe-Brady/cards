@@ -6,28 +6,26 @@
 
 Open `/index.html` in any browser.
 
+To run the Mocha tests, open `/test/index.html`.
+
 ---
 
 ## Making changes to the application
 
 1. Install the `gulp` CLI
 
-```
-npm install --global gulp-cli
-```
+    ```
+    npm install --global gulp-cli
+    ```
 
 2. Install the project devDependencies
 
-```
-npm install
-```
+    ```
+    npm install
+    ```
 
 3. Start the live compile / concat / minify scripts
 
-```
-npm start
-```
-
-4. Run the tests
-
-Open `/test/index.html` in any browser.
+    ```
+    npm start
+    ```

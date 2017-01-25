@@ -1,7 +1,20 @@
 // BEGIN VARIABLES //
 
-var expect = chai.expect
+var expect = chai.expect;
+var deckOnLoad = deck;
 
+var testCards = [
+  {suit: "diamonds", rank:"4"},
+  {suit: "clubs", rank:"2"},
+  {suit: "hearts", rank:"J"},
+  {suit: "clubs", rank:"K"},
+  {suit: "spades", rank:"2"},
+  {suit: "hearts", rank:"4"},
+  {suit: "spades", rank:"9"},
+  {suit: "hearts", rank:"Q"},
+  {suit: "diamonds", rank:"A"},
+  {suit: "diamonds", rank:"5"}
+]
 
 // BEGIN TESTS //
 
@@ -28,5 +41,28 @@ describe('Initial Page Load Tests', function(){
   it('Has empty array for cards that will be drawn', function(){
     expect(drawn).to.be.an('array');
     expect(drawn).to.have.lengthOf(0);
+  });
+});
+
+describe('Card Manipulation Tests', function(){
+  it('shuffleDeck returns the current deck in a different order', function(){
+    expect(shuffleDeck()).to.be.an('array');
+    expect(shuffleDeck()).to.not.eql(deckOnLoad);
+  });
+
+  it('sortCards returns the input array in order of suit and rank', function(){
+    expect(sortCards(testCards)).to.be.an('array');
+    expect(sortCards(testCards)).to.eql([
+      {suit: "clubs", rank:"2"},
+      {suit: "clubs", rank:"K"},
+      {suit: "spades", rank:"2"},
+      {suit: "spades", rank:"9"},
+      {suit: "hearts", rank:"4"},
+      {suit: "hearts", rank:"J"},
+      {suit: "hearts", rank:"Q"},
+      {suit: "diamonds", rank:"4"},
+      {suit: "diamonds", rank:"5"},
+      {suit: "diamonds", rank:"A"}
+    ]);
   });
 });
