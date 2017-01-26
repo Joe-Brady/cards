@@ -1,4 +1,56 @@
+/**** RESPONSIVE MASTER SETTINGS ****/
+html {
+  font: 16px helvetica, sans-serif; }
+
+@media all and (max-width: 800px) {
+  html {
+    font-size: 14px; } }
+
+@media all and (max-width: 500px) {
+  html {
+    font-size: 12px; } }
+
 h1 {
   color: red; }
 
+.card {
+  width: 8rem;
+  height: 11rem; }
 
+.card-suit-section img {
+  height: 100%;
+  margin: auto; }
+
+.card-suit-section {
+  height: 50%;
+  width: 100%;
+  margin: auto;
+  display: block; }
+
+.card-value-section {
+  height: 25%;
+  width: 100%;
+  display: block;
+  background-color: grey; }
+
+.card-value-section span {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 0 0.2rem 0; }
+
+.card-value-section img {
+  width: 1.2rem;
+  display: block;
+  margin: auto; }
+
+.left-align {
+  float: left;
+  padding-left: 0.2rem; }
+
+@media all and (max-width: 800px) {
+  h1 {
+    color: blue; } }
+
+@media all and (max-width: 500px) {
+  h1 {
+    color: magenta; } }

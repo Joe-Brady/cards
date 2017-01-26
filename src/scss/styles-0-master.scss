@@ -1,0 +1,17 @@
+/**** RESPONSIVE MASTER SETTINGS ****/
+
+html {
+    font: 16px helvetica, sans-serif;
+}
+
+@media all and (max-width: 800px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media all and (max-width: 500px) {
+    html {
+        font-size: 12px;
+    }
+}

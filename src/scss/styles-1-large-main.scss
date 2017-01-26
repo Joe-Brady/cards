@@ -1,0 +1,50 @@
+$main: red;
+
+h1 {
+  color: $main;
+}
+
+.card {
+  width: 8rem;
+  height: 11rem;
+}
+
+.card-suit-section img {
+  height: 100%;
+  margin: auto;
+}
+
+.card-suit-section {
+  height: 40%;
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.card-value-section {
+  height: 30%;
+  width: 100%;
+  display: block;
+  background-color: grey;
+}
+
+.mirrored {
+
+}
+
+.card-value-section span {
+  display: block;
+  text-align: center;
+  padding: 0.5rem 0 0.2rem 0;
+}
+
+.card-value-section img {
+  width: 1.2rem;
+  display: block;
+  margin: auto;
+}
+
+.left-align {
+  float: left;
+  padding-left: 0.2rem;
+}
