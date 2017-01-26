@@ -10,19 +10,30 @@
 
   <!-- BEGIN HTML ELEMENTS REQUIRED FOR TESTS -->
   <div id="html-elements" style="display:none;">
-    <span id="draw-error"></span>
-    <button id="shuffle-deck">Shuffle the deck</button>
-    <button id="sort-deck">Sort the deck</button>
-    <input type="text" value="1" id="draw-input">
-    <button id="draw-cards">Draw cards</button>
-    <button id="fold-all-cards">Return cards to deck</button>
+    <div class="central controls">
+      <button id="shuffledeck">Shuffle the deck</button>
+      <button id="sortdeck">Sort the deck</button>
+      <br><br>
+      <span>Number of cards to draw:</span>
+      <input type="text" value="1" id="drawinput">
+      <button id="drawcards">Draw cards</button>
+      <br>
+      <span class="error central" id="drawerror"></span>
+      <br>
+      <button id="foldallcards">Return cards to deck</button>
+    </div>
 
     <div id="deck-container">
+      <hr>
+      <h2>Deck</h2>
       <div id="deck">
 
       </div>
     </div>
+
     <div id="drawn-container">
+      <hr>
+      <h2>Drawn cards (sorted)</h2>
       <div id="drawn">
 
       </div>

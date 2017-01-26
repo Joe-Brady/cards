@@ -70,7 +70,8 @@ hr {
 
 #drawinput {
   width: 2rem;
-  margin: 0 0.5rem; }
+  margin: 0 0.5rem;
+  text-align: center; }
 
 .controls {
   margin: 2rem; }
