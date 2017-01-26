@@ -17,6 +17,25 @@ body {
   color: $error-colour;
   margin: 1rem;
 }
+
+button {
+  background-color: rgba(0, 0, 0, 0.21);
+  color: $body-text-colour;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.28);
+}
+
+.greyedOut {
+  color: #797979;
+  pointer-events: none;
+  cursor: default;
+}
 // END GLOBAL CSS
 
 hr {
@@ -51,7 +70,7 @@ hr {
   max-width: 1000px;
 }
 
-#draw-input {
+#drawinput {
   width: 2rem;
   margin: 0 0.5rem;
 }

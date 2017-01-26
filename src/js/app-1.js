@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   updateDeckView();
   updateDrawnView();
+  greyOut("sortdeck");
 });
 
 // ON LOAD: define the suits and ranks, and their correct order
@@ -31,6 +32,14 @@ suits.forEach(function() {
 
   suitCounter++;
 });
+
+// ON LOAD: declare page elements as variables
+const shuffleDeckButton = document.getElementById("shuffledeck");
+const sortDeckButton = document.getElementById("sortdeck");
+const drawCardsButton = document.getElementById("drawcards");
+const foldAllCardsButton = document.getElementById("foldallcards");
+const drawError = document.getElementById("drawerror");
+const drawInput = document.getElementById("drawinput");
 
 // randomise the order of the deck
 var shuffleDeck = function(){
@@ -71,22 +80,23 @@ var drawCards = function(numberOfCards){
   var num = Math.floor(numberOfCards);
   if (deck == 0) {
     var err = ("There are no cards left in the deck!");
-    document.getElementById("draw-error").innerHTML = err;
+    drawError.innerHTML = err;
     return "Error flagged";
   }
   else if (num >= 1 && num <= deck.length) {
+    reactivate("foldallcards");
     for (i = 0; i < num; i++) {
       drawn.push(deck.splice(Math.floor(Math.random()*deck.length), 1)[0]);
     }
     drawn = sortCards(drawn);
-    document.getElementById("draw-error").innerHTML = "";
+    drawError.innerHTML = "";
     updateDeckView();
     updateDrawnView();
     return drawn;
   }
   else {
     var err = ("Please enter a number between 1 and " + deck.length);
-    document.getElementById("draw-error").innerHTML = err;
+    drawError.innerHTML = err;
     return "Error flagged";
   }
 }
@@ -95,6 +105,8 @@ var drawCards = function(numberOfCards){
 // returnToDeck(0, drawn.length); is used to return ALL cards.
 var returnToDeck = function(startAtCard, numberOfCards){
     deck.push.apply(deck, drawn.splice(startAtCard, numberOfCards)); // this will still work if a future function seeks to return individual cards, or x number of cards in a row.
+    reactivate("drawcards");
+    reactivate("sortdeck");
     updateDeckView();
     updateDrawnView();
 }
@@ -115,6 +127,7 @@ var updateDeckView = function(){
   var deckHTML = "";
   if (deck.length == 0){
     deckHTML = '<div class="card empty"></div>';
+    greyOut("drawcards");
   }
   else {
     for (i = 0; i < deck.length; i++) {
@@ -141,6 +154,7 @@ var updateDrawnView = function(){
   var drawnHTML = "";
   if (drawn.length == 0){
     drawnHTML = '<div class="card empty"></div>';
+    greyOut("foldallcards");
   }
   else {
     for (i = 0; i < drawn.length; i++) {
@@ -162,25 +176,34 @@ var updateDrawnView = function(){
   document.getElementById("drawn").innerHTML = drawnHTML;
 }
 
-// button functions
-const shuffleDeckButton = document.getElementById("shuffle-deck");
-const sortDeckButton = document.getElementById("sort-deck");
-const drawCardsButton = document.getElementById("draw-cards");
-const foldAllCardsButton = document.getElementById("fold-all-cards");
+// Greys out / deactivates buttons
+var greyOut = function(buttonID){
+  document.getElementById(buttonID).className = "greyedOut";
+}
 
+// Reactivates buttons
+var reactivate = function(buttonID){
+  document.getElementById(buttonID).className =
+   document.getElementById(buttonID).className.replace
+      ( /(?:^|\s)greyedOut(?!\S)/g , '' )
+}
+
+// button functions
 shuffleDeckButton.onclick = function(){
+  reactivate("sortdeck");
   shuffleDeck();
 };
 
 sortDeckButton.onclick = function(){
   deck = sortCards(deck);
   updateDeckView();
+  greyOut("sortdeck");
 };
 
 drawCardsButton.onclick = function(){
-  var num = document.getElementById("draw-input").value;
+  var num = drawInput.value;
   drawCards(num);
-  document.getElementById("draw-input").value = 1;
+  drawInput.value = 1;
 };
 
 foldAllCardsButton.onclick = function(){
