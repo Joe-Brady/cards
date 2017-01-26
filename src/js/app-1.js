@@ -102,7 +102,8 @@ var returnToDeck = function(startAtCard, numberOfCards){
 // declare suit images and boilerplate HTML for cards
 const suitImages = ["assets/club.png", "assets/spade.png", "assets/heart.png", "assets/diamond.png"];
 
-const bp1 = '<div class="card"><div class="card-value-section">';
+const bp1Deck = '<div class="card overlap"><div class="card-value-section">';
+const bp1Drawn = '<div class="card"><div class="card-value-section">';
 const bp2 = '<div class="left-align"><span>'
 const bp3 = '</span><img src="'
 const bp4 = '"></div></div><div class="card-suit-section"><img src="'
@@ -112,20 +113,25 @@ const bp6 = '"></div></div></div>'
 // update the view to display changes to the deck array
 var updateDeckView = function(){
   var deckHTML = "";
-  for (i = 0; i < deck.length; i++) {
-    var currentSuit = suits.indexOf(deck[i].suit);
-    var image = suitImages[currentSuit];
-    var group = (bp2 + deck[i].rank + bp3 + image);
-    var cardHTML =
-      (bp1 +
-      group +
-      bp4 +
-      image +
-      bp5 +
-      group +
-      bp6
-      );
-    deckHTML += cardHTML;
+  if (deck.length == 0){
+    deckHTML = '<div class="card empty"></div>';
+  }
+  else {
+    for (i = 0; i < deck.length; i++) {
+      var currentSuit = suits.indexOf(deck[i].suit);
+      var image = suitImages[currentSuit];
+      var group = (bp2 + deck[i].rank + bp3 + image);
+      var cardHTML =
+        (bp1Deck +
+        group +
+        bp4 +
+        image +
+        bp5 +
+        group +
+        bp6
+        );
+      deckHTML += cardHTML;
+    }
   }
   document.getElementById("deck").innerHTML = deckHTML;
 }
@@ -133,20 +139,25 @@ var updateDeckView = function(){
 // update the view to display changes to the drawn array
 var updateDrawnView = function(){
   var drawnHTML = "";
-  for (i = 0; i < drawn.length; i++) {
-    var currentSuit = suits.indexOf(drawn[i].suit);
-    var image = suitImages[currentSuit];
-    var group = (bp2 + drawn[i].rank + bp3 + image);
-    var cardHTML =
-      (bp1 +
-      group +
-      bp4 +
-      image +
-      bp5 +
-      group +
-      bp6
-      );
-    drawnHTML += cardHTML;
+  if (drawn.length == 0){
+    drawnHTML = '<div class="card empty"></div>';
+  }
+  else {
+    for (i = 0; i < drawn.length; i++) {
+      var currentSuit = suits.indexOf(drawn[i].suit);
+      var image = suitImages[currentSuit];
+      var group = (bp2 + drawn[i].rank + bp3 + image);
+      var cardHTML =
+        (bp1Drawn +
+        group +
+        bp4 +
+        image +
+        bp5 +
+        group +
+        bp6
+        );
+      drawnHTML += cardHTML;
+    }
   }
   document.getElementById("drawn").innerHTML = drawnHTML;
 }

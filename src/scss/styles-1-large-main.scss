@@ -1,5 +1,6 @@
 $body-text-colour: white;
 $card-text-colour: black;
+$error-colour: #bcff00;
 $card-font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 
 // BEGIN GLOBAL CSS
@@ -13,25 +14,57 @@ body {
 }
 
 .error {
-  color: $body-text-colour;
+  color: $error-colour;
+  margin: 1rem;
 }
 // END GLOBAL CSS
 
+hr {
+  width: 55%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}
 
 // BEGIN GENERAL CSS
 #deck-container {
   text-align: center;
-  margin: 1rem;
+  margin: 1rem 0 8rem 0;
+  width: 100%;
+}
+
+#drawn-container {
+  text-align: center;
+  margin: 1rem 0;
+  width: 100%;
 }
 
 #deck {
   display: inline-block;
+  width: 70%;
+  max-width: 1000px;
+}
+
+#drawn {
+  display: inline-block;
+  width: 80%;
+  max-width: 1000px;
 }
 
 #draw-input {
   width: 2rem;
   margin: 0 0.5rem;
 }
+
+.controls {
+margin: 2rem;
+}
+
+.topLeft {
+  float: left;
+  position: absolute;;
+}
+
 // END GENERAL CSS
 
 
@@ -48,6 +81,12 @@ body {
   font-family: $card-font;
   margin: 0 0.5rem;
   margin-left: -0rem;
+}
+
+.overlap {
+  margin-left: -7rem;
+  margin-bottom: -6rem;
+  transform: translateX(3.5rem);
 }
 
 .card-suit-section img {
@@ -88,5 +127,10 @@ body {
 .left-align {
   float: left;
   padding-left: 0.4rem;
+}
+
+.empty {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.12);
 }
 // END CARDS CSS

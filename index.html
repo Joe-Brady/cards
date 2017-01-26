@@ -2,22 +2,14 @@
 <html lang="en-GB">
   <head>
     <meta charset="utf-8">
-    <title>Cards</title>
+    <title>Cards - Joe Brady</title>
     <link rel="stylesheet" href="dist/css/normalize.min.css">
     <link rel="stylesheet" href="dist/css/styles.min.css">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
   </head>
 
   <body>
-      <h1 class="central">Cards</h1>
-
-      <div id="deck-container">
-        <div id="deck">
-
-        </div>
-      </div>
-
-      <div id="controls" class="central">
+      <div class="central controls">
         <button id="shuffle-deck">Shuffle the deck</button>
         <button id="sort-deck">Sort the deck</button>
         <br><br>
@@ -28,11 +20,21 @@
         <span class="error central" id="draw-error"></span>
         <br>
         <button id="fold-all-cards">Return cards to deck</button>
+      </div>
 
-        <div id="drawn-container">
-          <div id="drawn">
+      <div id="deck-container">
+        <hr>
+        <h2>Deck</h2>
+        <div id="deck">
 
-          </div>
+        </div>
+      </div>
+
+      <div id="drawn-container">
+        <hr>
+        <h2>Drawn cards (sorted)</h2>
+        <div id="drawn">
+
         </div>
       </div>
 

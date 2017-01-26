@@ -1,9 +1,10 @@
 /**** RESPONSIVE MASTER SETTINGS ****/
 html {
-  font: 16px "Open Sans", helvetica, sans-serif; }
+  font: 16px "Open Sans", helvetica, sans-serif;
+  font-weight: 100; }
 
-h1 {
-  font-size: 3rem;
+h1, h2, h3, h4, button, input, optgroup, select, textarea {
+  font-family: "Open Sans", helvetica, sans-serif;
   font-weight: 100; }
 
 @media all and (max-width: 800px) {
@@ -22,18 +23,45 @@ body {
   text-align: center; }
 
 .error {
-  color: white; }
+  color: #bcff00;
+  margin: 1rem; }
+
+hr {
+  width: 55%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.75), transparent); }
 
 #deck-container {
   text-align: center;
-  margin: 1rem; }
+  margin: 1rem 0 8rem 0;
+  width: 100%; }
+
+#drawn-container {
+  text-align: center;
+  margin: 1rem 0;
+  width: 100%; }
 
 #deck {
-  display: inline-block; }
+  display: inline-block;
+  width: 70%;
+  max-width: 1000px; }
+
+#drawn {
+  display: inline-block;
+  width: 80%;
+  max-width: 1000px; }
 
 #draw-input {
   width: 2rem;
   margin: 0 0.5rem; }
+
+.controls {
+  margin: 2rem; }
+
+.topLeft {
+  float: left;
+  position: absolute; }
 
 .card {
   position: relative;
@@ -47,6 +75,11 @@ body {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   margin: 0 0.5rem;
   margin-left: -0rem; }
+
+.overlap {
+  margin-left: -7rem;
+  margin-bottom: -6rem;
+  transform: translateX(3.5rem); }
 
 .card-suit-section img {
   height: 100%;
@@ -80,5 +113,9 @@ body {
 .left-align {
   float: left;
   padding-left: 0.4rem; }
+
+.empty {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.12); }
 
 
