@@ -44,13 +44,14 @@ describe('Initial Page Load Tests', function(){
   });
 });
 
+
 describe('Card Manipulation Tests', function(){
   it('shuffleDeck returns the current deck in a different order', function(){
     expect(shuffleDeck()).to.be.an('array');
     expect(shuffleDeck()).to.not.eql(deckOnLoad);
   });
 
-  it('sortCards returns the input array in order of suit and rank', function(){
+  it('sortCards(inputArray) returns inputArray in order of suit and rank', function(){
     expect(sortCards(testCards)).to.be.an('array');
     expect(sortCards(testCards)).to.eql([
       {suit: "clubs", rank:"2"},
@@ -65,4 +66,37 @@ describe('Card Manipulation Tests', function(){
       {suit: "diamonds", rank:"A"}
     ]);
   });
+
+  it('drawCards(x) moves x number of ordered cards from deck to drawn array', function(){
+    returnToDeck(0, drawn.length); // reset arrays
+    expect(drawCards(1)).to.be.an('array');
+    var previousDeck = deck.length;
+    drawCards(5);
+    expect(deck.length).to.equal(previousDeck - 5);
+    expect(drawCards(15).length + deck.length).to.equal(52);
+    returnToDeck(0, drawn.length);
+    expect(drawCards(52.9).length + deck.length).to.equal(52); // tests that a non-integer is rounded down to the nearest integer
+  });
+
+  it('drawCards(invalid) handles invalid inputs correctly', function(){
+    returnToDeck(0, drawn.length); // reset arrays
+    expect(drawCards(100)).to.equal("Error flagged");
+    expect(drawCards("some input")).to.equal("Error flagged");
+    expect(drawCards(-5)).to.equal("Error flagged");
+  });
+
+  it('returnToDeck(0, drawn.length) moves all drawn cards back to the deck array', function(){
+    returnToDeck(0, drawn.length); // reset arrays
+    shuffleDeck();
+    drawCards(15);
+    drawn.reverse();
+    var lastDrawnCard = drawn[0]; // makes a note of the card at the end of the drawn array
+    drawn.reverse();
+    returnToDeck(0, drawn.length); // returns all drawn cards to the end of the deck array
+    deck.reverse();
+    lastCardInFullDeck = deck[0]; // makes a note of the last card in the deck array
+    deck.reverse();
+    expect(lastDrawnCard).to.equal(lastCardInFullDeck); // checks that it's the same card
+  });
+
 });

@@ -1,14 +1,10 @@
 # Cards
 
----
-
 ## Running the application
 
 Open `/index.html` in any browser.
 
 To run the Mocha tests, open `/test/index.html`.
-
----
 
 ## Making changes to the application
 
