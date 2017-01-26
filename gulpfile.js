@@ -1,11 +1,11 @@
 var gulp = require('gulp');
 
-var concat = require('gulp-concat');
-var cssmin = require('gulp-minify-css');
-var rename = require('gulp-rename');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var prefix = require('gulp-autoprefixer');
+const concat = require('gulp-concat');
+const cssmin = require('gulp-minify-css');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const prefix = require('gulp-autoprefixer');
 
 // default task
 gulp.task('default', ['scripts','styles','watch']);
