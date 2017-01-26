@@ -1,7 +1,12 @@
 /**** RESPONSIVE MASTER SETTINGS ****/
 
 html {
-    font: 16px helvetica, sans-serif;
+    font: 16px "Open Sans", helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 100;
 }
 
 @media all and (max-width: 800px) {

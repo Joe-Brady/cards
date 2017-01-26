@@ -1,16 +1,58 @@
-$main: red;
+$body-text-colour: white;
+$card-text-colour: black;
+$card-font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 
-h1 {
-  color: $main;
+// BEGIN GLOBAL CSS
+body {
+  background-color: green;
+  color: $body-text-colour;
 }
 
+.central {
+  text-align: center;
+}
+
+.error {
+  color: $body-text-colour;
+}
+// END GLOBAL CSS
+
+
+// BEGIN GENERAL CSS
+#deck-container {
+  text-align: center;
+  margin: 1rem;
+}
+
+#deck {
+  display: inline-block;
+}
+
+#draw-input {
+  width: 2rem;
+  margin: 0 0.5rem;
+}
+// END GENERAL CSS
+
+
+// BEGIN CARDS CSS
 .card {
+  position: relative;;
+  display: inline-block;
   width: 8rem;
   height: 11rem;
+  border: 1px solid black;
+  border-radius: 0.6rem;
+  background-color: white;
+  color: $card-text-colour;
+  font-family: $card-font;
+  margin: 0 0.5rem;
+  margin-left: -0rem;
 }
 
 .card-suit-section img {
   height: 100%;
+  display: block;
   margin: auto;
 }
 
@@ -25,11 +67,10 @@ h1 {
   height: 30%;
   width: 100%;
   display: block;
-  background-color: grey;
 }
 
 .mirrored {
-
+  transform:rotate(180deg);
 }
 
 .card-value-section span {
@@ -46,5 +87,6 @@ h1 {
 
 .left-align {
   float: left;
-  padding-left: 0.2rem;
+  padding-left: 0.4rem;
 }
+// END CARDS CSS

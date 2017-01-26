@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", function(event) {
+  updateDeckView();
+  updateDrawnView();
+});
+
 // ON LOAD: define the suits and ranks, and their correct order
 const suits = ["clubs", "spades", "hearts", "diamonds"];
 const ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
@@ -76,6 +81,7 @@ var drawCards = function(numberOfCards){
     drawn = sortCards(drawn);
     document.getElementById("draw-error").innerHTML = "";
     updateDeckView();
+    updateDrawnView();
     return drawn;
   }
   else {
@@ -90,15 +96,59 @@ var drawCards = function(numberOfCards){
 var returnToDeck = function(startAtCard, numberOfCards){
     deck.push.apply(deck, drawn.splice(startAtCard, numberOfCards)); // this will still work if a future function seeks to return individual cards, or x number of cards in a row.
     updateDeckView();
+    updateDrawnView();
 }
+
+// declare suit images and boilerplate HTML for cards
+const suitImages = ["assets/club.png", "assets/spade.png", "assets/heart.png", "assets/diamond.png"];
+
+const bp1 = '<div class="card"><div class="card-value-section">';
+const bp2 = '<div class="left-align"><span>'
+const bp3 = '</span><img src="'
+const bp4 = '"></div></div><div class="card-suit-section"><img src="'
+const bp5 = '"></div><div class="card-value-section mirrored">'
+const bp6 = '"></div></div></div>'
 
 // update the view to display changes to the deck array
 var updateDeckView = function(){
   var deckHTML = "";
   for (i = 0; i < deck.length; i++) {
-    deckHTML += "<li>" + deck[i].rank + deck[i].suit + "</li>";
+    var currentSuit = suits.indexOf(deck[i].suit);
+    var image = suitImages[currentSuit];
+    var group = (bp2 + deck[i].rank + bp3 + image);
+    var cardHTML =
+      (bp1 +
+      group +
+      bp4 +
+      image +
+      bp5 +
+      group +
+      bp6
+      );
+    deckHTML += cardHTML;
   }
-  console.log(deckHTML);
+  document.getElementById("deck").innerHTML = deckHTML;
+}
+
+// update the view to display changes to the drawn array
+var updateDrawnView = function(){
+  var drawnHTML = "";
+  for (i = 0; i < drawn.length; i++) {
+    var currentSuit = suits.indexOf(drawn[i].suit);
+    var image = suitImages[currentSuit];
+    var group = (bp2 + drawn[i].rank + bp3 + image);
+    var cardHTML =
+      (bp1 +
+      group +
+      bp4 +
+      image +
+      bp5 +
+      group +
+      bp6
+      );
+    drawnHTML += cardHTML;
+  }
+  document.getElementById("drawn").innerHTML = drawnHTML;
 }
 
 // button functions

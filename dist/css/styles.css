@@ -1,6 +1,10 @@
 /**** RESPONSIVE MASTER SETTINGS ****/
 html {
-  font: 16px helvetica, sans-serif; }
+  font: 16px "Open Sans", helvetica, sans-serif; }
+
+h1 {
+  font-size: 3rem;
+  font-weight: 100; }
 
 @media all and (max-width: 800px) {
   html {
@@ -10,28 +14,58 @@ html {
   html {
     font-size: 12px; } }
 
-h1 {
-  color: red; }
+body {
+  background-color: green;
+  color: white; }
+
+.central {
+  text-align: center; }
+
+.error {
+  color: white; }
+
+#deck-container {
+  text-align: center;
+  margin: 1rem; }
+
+#deck {
+  display: inline-block; }
+
+#draw-input {
+  width: 2rem;
+  margin: 0 0.5rem; }
 
 .card {
+  position: relative;
+  display: inline-block;
   width: 8rem;
-  height: 11rem; }
+  height: 11rem;
+  border: 1px solid black;
+  border-radius: 0.6rem;
+  background-color: white;
+  color: black;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  margin: 0 0.5rem;
+  margin-left: -0rem; }
 
 .card-suit-section img {
   height: 100%;
+  display: block;
   margin: auto; }
 
 .card-suit-section {
-  height: 50%;
+  height: 40%;
   width: 100%;
   margin: auto;
   display: block; }
 
 .card-value-section {
-  height: 25%;
+  height: 30%;
   width: 100%;
-  display: block;
-  background-color: grey; }
+  display: block; }
+
+.mirrored {
+  transform: rotate(180deg); }
 
 .card-value-section span {
   display: block;
@@ -45,12 +79,6 @@ h1 {
 
 .left-align {
   float: left;
-  padding-left: 0.2rem; }
+  padding-left: 0.4rem; }
 
-@media all and (max-width: 800px) {
-  h1 {
-    color: blue; } }
 
-@media all and (max-width: 500px) {
-  h1 {
-    color: magenta; } }
