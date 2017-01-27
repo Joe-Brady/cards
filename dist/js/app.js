@@ -42,7 +42,7 @@ const drawError = document.getElementById("drawerror");
 const drawInput = document.getElementById("drawinput");
 
 // randomise the order of the deck
-var shuffleDeck = function(){
+function shuffleDeck(){
   var newDeck = [];
   var deckNumber = deck.length;
 
@@ -56,7 +56,7 @@ var shuffleDeck = function(){
 }
 
 // sort the input array into both suit and rank order
-var sortCards = function(inputArray){
+function sortCards(inputArray){
   var phase1 = [];
   for (i = 0; i < ranks.length; i++) {
     function selectByRank(card) {
@@ -76,7 +76,7 @@ var sortCards = function(inputArray){
 }
 
 // move x number of random cards from the deck array into the drawn array, then sort them
-var drawCards = function(numberOfCards){
+function drawCards(numberOfCards){
   var num = Math.floor(numberOfCards);
   if (deck == 0) {
     var err = ("There are no cards left in the deck!");
@@ -103,7 +103,7 @@ var drawCards = function(numberOfCards){
 
 // move a number of cards from the drawn array back to the deck array
 // returnToDeck(0, drawn.length); is used to return ALL cards.
-var returnToDeck = function(startAtCard, numberOfCards){
+function returnToDeck(startAtCard, numberOfCards){
     deck.push.apply(deck, drawn.splice(startAtCard, numberOfCards)); // this will still work if a future function seeks to return individual cards, or x number of cards in a row.
     reactivate("drawcards");
     reactivate("sortdeck");
@@ -123,7 +123,7 @@ const bp5 = '"></div><div class="card-value-section mirrored">'
 const bp6 = '"></div></div></div>'
 
 // update the view to display changes to the deck array
-var updateDeckView = function(){
+function updateDeckView(){
   var deckHTML = "";
   if (deck.length == 0){
     deckHTML = '<div class="card empty"></div>';
@@ -150,7 +150,7 @@ var updateDeckView = function(){
 }
 
 // update the view to display changes to the drawn array
-var updateDrawnView = function(){
+function updateDrawnView(){
   var drawnHTML = "";
   if (drawn.length == 0){
     drawnHTML = '<div class="card empty"></div>';
@@ -177,12 +177,12 @@ var updateDrawnView = function(){
 }
 
 // Greys out / deactivates buttons
-var greyOut = function(buttonID){
+function greyOut(buttonID){
   document.getElementById(buttonID).className = "greyedOut";
 }
 
 // Reactivates buttons
-var reactivate = function(buttonID){
+function reactivate(buttonID){
   document.getElementById(buttonID).className =
    document.getElementById(buttonID).className.replace
       ( /(?:^|\s)greyedOut(?!\S)/g , '' )
