@@ -4,8 +4,6 @@
 
 Open `/index.html` in any browser.
 
-To run the Mocha tests, open `/test/index.html`.
-
 ## Making changes to the application
 
 1. Install the `gulp` CLI
@@ -25,3 +23,4 @@ To run the Mocha tests, open `/test/index.html`.
     ```
     npm start
     ```
+4. Open `/test/index.html` to run the Mocha tests in-browser.
