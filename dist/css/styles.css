@@ -32,10 +32,14 @@ button {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.2rem;
-  cursor: pointer; }
+  cursor: pointer;
+  outline: none; }
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.28); }
+
+button:active {
+  background-color: rgba(0, 0, 0, 0.4); }
 
 .greyedOut {
   color: #797979;
@@ -65,7 +69,7 @@ hr {
 
 #drawn {
   display: inline-block;
-  width: 80%;
+  width: 85%;
   max-width: 1000px; }
 
 #drawinput {
@@ -96,10 +100,7 @@ hr {
   margin-left: -7rem;
   margin-bottom: -6rem;
   transform: translateX(3.5rem);
-  /*transition: margin-left 1s;*/ }
-
-.overlapAnim {
-  margin-left: -7rem; }
+  animation: marginOverlap 1s ease forwards; }
 
 .card-suit-section img {
   height: 100%;

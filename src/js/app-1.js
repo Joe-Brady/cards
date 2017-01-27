@@ -2,9 +2,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   updateDeckView();
   updateDrawnView();
   greyOut("sortdeck");
-  /*setTimeout(function() {
-    document.getElementById("animatableCards").className = "overlapAnim";
-  }, 200);*/
 });
 
 // ON LOAD: define the suits and ranks, and their correct order
