@@ -76,6 +76,7 @@ describe('Card Manipulation Tests', function(){
     expect(drawCards(15).length + deck.length).to.equal(52);
     returnToDeck(0, drawn.length);
     expect(drawCards(52.9).length + deck.length).to.equal(52); // tests that a non-integer is rounded down to the nearest integer
+    expect(drawCards(1)).to.equal("Error flagged"); // tests that you cannot draw cards from an empty deck
   });
 
   it('drawCards(invalid) handles invalid inputs correctly', function(){

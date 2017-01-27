@@ -1,142 +1,161 @@
-/**** RESPONSIVE MASTER SETTINGS ****/
-html {
-  font: 16px "Open Sans", helvetica, sans-serif;
-  font-weight: 100; }
+$body-text-colour: white;
+$card-text-colour: black;
+$error-colour: #bcff00;
+$card-font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 
-h1, h2, h3, h4, button, input, optgroup, select, textarea {
-  font-family: "Open Sans", helvetica, sans-serif;
-  font-weight: 100; }
-
-@media all and (max-width: 800px) {
-  html {
-    font-size: 14px; } }
-
-@media all and (max-width: 500px) {
-  html {
-    font-size: 12px; } }
-
+// BEGIN GLOBAL CSS
 body {
   background-color: green;
-  color: white; }
+  color: $body-text-colour;
+}
 
 .central {
-  text-align: center; }
+  text-align: center;
+}
 
 .error {
-  color: #bcff00;
-  margin: 1rem; }
+  color: $error-colour;
+  margin: 1rem;
+}
 
 button {
   background-color: rgba(0, 0, 0, 0.21);
-  color: white;
+  color: $body-text-colour;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 0.2rem;
   cursor: pointer;
-  outline: none; }
+  outline: none;
+}
 
 button:hover {
-  background-color: rgba(0, 0, 0, 0.28); }
+  background-color: rgba(0, 0, 0, 0.28);
+}
 
 button:active {
-  background-color: rgba(0, 0, 0, 0.4); }
+  background-color: rgba(0, 0, 0, 0.40);
+}
 
 .greyedOut {
   color: #797979;
   pointer-events: none;
-  cursor: default; }
+  cursor: default;
+}
+// END GLOBAL CSS
 
 hr {
   width: 55%;
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.75), transparent); }
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}
 
+// BEGIN GENERAL CSS
 #deck-container {
   text-align: center;
   margin: 1rem 0 8rem 0;
-  width: 100%; }
+  width: 100%;
+}
 
 #drawn-container {
   text-align: center;
   margin: 1rem 0;
-  width: 100%; }
+  width: 100%;
+}
 
 #deck {
   display: inline-block;
   width: 70%;
-  max-width: 1000px; }
+  max-width: 1000px;
+}
 
 #drawn {
   display: inline-block;
   width: 85%;
-  max-width: 1000px; }
+  max-width: 1000px;
+}
 
 #drawinput {
   width: 2rem;
   margin: 0 0.5rem;
-  text-align: center; }
+  text-align: center;
+}
 
 .controls {
-  margin: 2rem; }
+margin: 2rem;
+}
 
 .topLeft {
   float: left;
-  position: absolute; }
+  position: absolute;;
+}
 
+// END GENERAL CSS
+
+
+// BEGIN CARDS CSS
 .card {
-  position: relative;
+  position: relative;;
   display: inline-block;
   width: 8rem;
   height: 11rem;
   border: 1px solid black;
   border-radius: 0.6rem;
   background-color: white;
-  color: black;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  margin: 0 0.5rem; }
+  color: $card-text-colour;
+  font-family: $card-font;
+  margin: 0 0.5rem;
+}
 
 .overlap {
   margin-left: -7rem;
   margin-bottom: -6rem;
   transform: translateX(3.5rem);
-  animation: marginOverlap 1s ease forwards; }
+  animation: marginOverlap 1s ease forwards;
+}
 
 .card-suit-section img {
   height: 100%;
   display: block;
-  margin: auto; }
+  margin: auto;
+}
 
 .card-suit-section {
   height: 40%;
   width: 100%;
   margin: auto;
-  display: block; }
+  display: block;
+}
 
 .card-value-section {
   height: 30%;
   width: 100%;
-  display: block; }
+  display: block;
+}
 
 .mirrored {
-  transform: rotate(180deg); }
+  transform:rotate(180deg);
+}
 
 .card-value-section span {
   display: block;
   text-align: center;
-  padding: 0.5rem 0 0.2rem 0; }
+  padding: 0.5rem 0 0.2rem 0;
+}
 
 .card-value-section img {
   width: 1.2rem;
   display: block;
-  margin: auto; }
+  margin: auto;
+}
 
 .left-align {
   float: left;
-  padding-left: 0.4rem; }
+  padding-left: 0.4rem;
+}
 
 .empty {
   border: none;
-  background-color: rgba(0, 0, 0, 0.12); }
-
-
+  background-color: rgba(0, 0, 0, 0.12);
+}
+// END CARDS CSS

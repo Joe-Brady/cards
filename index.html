@@ -2,15 +2,42 @@
 <html lang="en-GB">
   <head>
     <meta charset="utf-8">
-    <title>Cards</title>
+    <title>Cards - Joe Brady</title>
     <link rel="stylesheet" href="dist/css/normalize.min.css">
     <link rel="stylesheet" href="dist/css/styles.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
   </head>
 
   <body>
-      <h1>Test</h1>
-      <span id="draw-error"></span>
-      <button id="fold-all-cards">Return all cards to the deck</button>
+      <div class="central controls">
+        <button id="shuffledeck">Shuffle the deck</button>
+        <button id="sortdeck">Sort the deck</button>
+        <br><br>
+        <span>Number of cards to draw:</span>
+        <input type="text" value="1" id="drawinput">
+        <button id="drawcards">Draw cards</button>
+        <br>
+        <span class="error central" id="drawerror"></span>
+        <br>
+        <button id="foldallcards">Return cards to deck</button>
+      </div>
+
+      <div id="deck-container">
+        <hr>
+        <h2>Deck</h2>
+        <div id="deck">
+
+        </div>
+      </div>
+
+      <div id="drawn-container">
+        <hr>
+        <h2>Drawn cards (sorted)</h2>
+        <div id="drawn">
+
+        </div>
+      </div>
+
       <script src="dist/js/app.min.js"></script>
   </body>
 </html>
