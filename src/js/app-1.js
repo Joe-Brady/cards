@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
   updateDeckView();
   updateDrawnView();
   greyOut("sortdeck");
+  /*setTimeout(function() {
+    document.getElementById("animatableCards").className = "overlapAnim";
+  }, 200);*/
 });
 
 // ON LOAD: define the suits and ranks, and their correct order
@@ -114,7 +117,7 @@ var returnToDeck = function(startAtCard, numberOfCards){
 // declare suit images and boilerplate HTML for cards
 const suitImages = ["assets/club.png", "assets/spade.png", "assets/heart.png", "assets/diamond.png"];
 
-const bp1Deck = '<div class="card overlap"><div class="card-value-section">';
+const bp1Deck = '<div id="animatableCards" class="card overlap"><div class="card-value-section">';
 const bp1Drawn = '<div class="card"><div class="card-value-section">';
 const bp2 = '<div class="left-align"><span>'
 const bp3 = '</span><img src="'
@@ -205,6 +208,17 @@ drawCardsButton.onclick = function(){
   drawCards(num);
   drawInput.value = 1;
 };
+
+drawInput.onkeypress = function(e){
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13'){
+      var num = drawInput.value;
+      drawCards(num);
+      drawInput.value = 1;
+      return false;
+    }
+  }
 
 foldAllCardsButton.onclick = function(){
   returnToDeck(0, drawn.length);

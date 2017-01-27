@@ -90,13 +90,16 @@ hr {
   background-color: white;
   color: black;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  margin: 0 0.5rem;
-  margin-left: -0rem; }
+  margin: 0 0.5rem; }
 
 .overlap {
   margin-left: -7rem;
   margin-bottom: -6rem;
-  transform: translateX(3.5rem); }
+  transform: translateX(3.5rem);
+  /*transition: margin-left 1s;*/ }
+
+.overlapAnim {
+  margin-left: -7rem; }
 
 .card-suit-section img {
   height: 100%;
