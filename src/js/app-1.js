@@ -114,7 +114,7 @@ function returnToDeck(startAtCard, numberOfCards){
 // declare suit images and boilerplate HTML for cards
 const suitImages = ["assets/club.png", "assets/spade.png", "assets/heart.png", "assets/diamond.png"];
 
-const bp1Deck = '<div id="animatableCards" class="card overlap"><div class="card-value-section">';
+const bp1Deck = '<div class="card overlap"><div class="card-value-section">';
 const bp1Drawn = '<div class="card"><div class="card-value-section">';
 const bp2 = '<div class="left-align"><span>'
 const bp3 = '</span><img src="'
